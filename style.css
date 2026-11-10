@@ -500,34 +500,58 @@ padding-left: 50px;
         overflow-x: hidden;
     }
 
-    .nav {
-        height: 70px;
-        padding: 0 20px;
+       .nav {
+        position: relative;
         justify-content: space-between;
-        border: none;
     }
 
-    .logo {
-        width: auto;
-        justify-content: flex-start;
-    }
-
+    /* 1. Mobile par pehle saare links aur button bilkul gayab (hide) rahenge */
     .icons {
         display: none;
     }
 
+    /* 2. Sirf Burger icon dikhega */
     .hamburger {
         display: block;
+        cursor: pointer;
     }
 
-    .header_icon {
+    /* 3. Burger par Mouse aate hi (Hover par) poori menu khul jayegi */
+    .nav:has(.hamburger:hover) .icons,
+    .hamburger:hover + .icons,
+    .icons:hover {
+        display: flex !important;
         flex-direction: column;
-        margin-top: 20px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
         height: auto;
-        padding: 0 20px;
-        gap: 30px;
+        background-color: #FFFFFF;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        padding: 25px 0;
+        gap: 20px;
+        z-index: 1000;
+        border-bottom: 2px solid black;
+        box-sizing: border-box;
     }
 
+    /* Menu ke andar ke links */
+    .icons a {
+        color: black;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    /* Menu ke andar ka button */
+    .icons .nav_btn {
+        width: 80%;
+        margin: 10px auto 0 auto;
+        background-color: #B9FF66;
+        color: black;
+        border: 1px solid black;
+        padding: 12px 0;
+    }
     .left {    
         width: 100%;
         align-items: flex-start;
@@ -538,7 +562,12 @@ padding-left: 50px;
         line-height: 1.2;
         margin-bottom: 20px;
     }
-
+ .brand svg{
+    display: none;
+ }
+ .s_btn{
+    margin-top: 50px;
+ }
     .left p {
         font-size: 16px;
         line-height: 1.5;
